@@ -4,7 +4,7 @@
     <h1 class="h2">Produtos</h1>
 </div>
 <div>
-    <form action="" method="GET" class="form-inline">
+    <form action="{{ route('produto.index') }}" method="GET" class="form-inline">
         <div class="form-group mx-sm-3 mb-2">
             <input type="text" class="form" name="pesquisar" id="pesquisar" placeholder="Digite o nome" />
             <button class="btn btn-secondary">Pesquisar</button>
@@ -25,7 +25,10 @@
                     <tr>
                         <td>{{$produto->nome}}</td>
                         <td>{{ 'R$' . ' ' . number_format($produto->valor, 2, ',', '.') }}</td>
-                        <td><a href="" class="btn btn-light btn-sm">Editar</a>  | <a href="" class="btn btn-danger btn-sm">Excluir</a></td>
+                        <td>
+                            <a href="" class="btn btn-light btn-sm">Editar</a>
+                            <a href="{{ route('produto.delete') }}" class="btn btn-danger btn-sm">Excluir</a>
+                        </td>
                     </tr>    
                 @endforeach
             </tbody>

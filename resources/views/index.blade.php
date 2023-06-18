@@ -133,10 +133,13 @@
     </div>
     </div>
     @yield('scripts')
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script src="/js/chart.umd.min.js"></script>
     <script src="/js/dashboard.js"></script>
-    <head><script src="js/color-modes.js"></script>
+    <script src="js/color-modes.js"></script>
+    <script src="https://cdnjs.cloudfare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.js"></script>
+
 </body>
 
 </html>
