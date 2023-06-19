@@ -8,7 +8,7 @@
         <div class="form-group mx-sm-3 mb-2">
             <input type="text" class="form" name="pesquisar" id="pesquisar" placeholder="Digite o nome" />
             <button class="btn btn-secondary">Pesquisar</button>
-            <a href="" type="button" class="btn btn-success float-end">Novo Produto</a>
+            <a href="{{ route('cadastrar.produto') }}" type="button" class="btn btn-success float-end">Novo Produto</a>
         </div>
     </form>
     <div class="table-responsive small mt-4">
@@ -27,7 +27,8 @@
                         <td>{{ 'R$' . ' ' . number_format($produto->valor, 2, ',', '.') }}</td>
                         <td>
                             <a href="" class="btn btn-light btn-sm">Editar</a>
-                            <a href="{{ route('produto.delete') }}" class="btn btn-danger btn-sm">Excluir</a>
+                            <meta name='csrf-token' content="{{ csrf_token() }}" />
+                            <a onclick="deleteRegistroPaginacao('{{ route('produto.delete') }}', {{$produto->id}})" class="btn btn-danger btn-sm">Excluir</a>
                         </td>
                     </tr>    
                 @endforeach
