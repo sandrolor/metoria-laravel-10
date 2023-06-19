@@ -14,7 +14,7 @@
     <link href="{{asset('css/bootstrap-icons.css')}}" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
-
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="{{asset('icones/apple-touch-icon.png')}}" sizes="180x180">
     <link rel="icon" href="{{asset('icones/favicon-32x32.png')}}" sizes="32x32" type="image/png">
@@ -141,6 +141,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
     <script src="/js/projeto.js"></script>
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::message() !!}
 </body>
 
 </html>
