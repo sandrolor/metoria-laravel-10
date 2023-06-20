@@ -15,7 +15,7 @@
         <div class="mb-3">
             <label class="form-label">E-mail</label>
             <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{old('email')}}">
-            @if ($errors->has('nome'))
+            @if ($errors->has('email'))
                 <div class="invalid-feedback">{{ $errors->first('email') }}</div>                
             @endif
         </div>

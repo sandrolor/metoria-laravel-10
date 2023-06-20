@@ -6,7 +6,7 @@
 <div>
     <form action="{{ route('cliente.index') }}" method="GET" class="form-inline">
         <div class="form-group mx-sm-3 mb-2">
-            <input type="text" class="form" name="pesquisar" id="pesquisar" placeholder="Digite o nome" />
+            <input type="text" class="form" name="pesquisar" id="pesquisar" placeholder="Digite o nome" value="{{ old('pesquisar')}}" />
             <button class="btn btn-secondary">Pesquisar</button>
             <a href="{{ route('cadastrar.cliente') }}" type="button" class="btn btn-success float-end">Novo Cliente</a>
         </div>
@@ -30,7 +30,7 @@
                 <tbody>
                     @foreach ($findCliente as $cliente)
                         <tr>
-                            <td>{{$cliente->nome}}</td>
+                            <td>{{ $cliente->nome}}</td>
                             <td>{{ $cliente->email}}</td>
                             <td>{{ $cliente->endereco}}</td>
                             <td>{{ $cliente->logradouro}}</td>
@@ -45,6 +45,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="py-4">
+                {{ $findCliente->links() }}
+            </div>
         @endif
     </div>
 @endsection

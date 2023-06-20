@@ -6,7 +6,7 @@
 <div>
     <form action="{{ route('produto.index') }}" method="GET" class="form-inline">
         <div class="form-group mx-sm-3 mb-2">
-            <input type="text" class="form" name="pesquisar" id="pesquisar" placeholder="Digite o nome" />
+            <input type="text" class="form" name="pesquisar" id="pesquisar" placeholder="Digite o nome" value="{{ old('pesquisar')}}" />
             <button class="btn btn-secondary">Pesquisar</button>
             <a href="{{ route('cadastrar.produto') }}" type="button" class="btn btn-success float-end">Novo Produto</a>
         </div>
@@ -37,6 +37,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="py-4">
+                {{ $findProduto->links() }}
+            </div>
         @endif
     </div>
 @endsection
