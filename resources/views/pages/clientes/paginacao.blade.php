@@ -20,9 +20,9 @@
                     <tr>
                         <th scope="col">Nome</th>
                         <th scope="col">E-mail</th>
+                        <th scope="col">CEP</th>
                         <th scope="col">Endereço</th>
                         <th scope="col">Logradouro</th>
-                        <th scope="col">CEP</th>
                         <th scope="col">Bairro</th>
                         <th scope="col">Ações</th>
                     </tr>
@@ -32,9 +32,9 @@
                         <tr>
                             <td>{{ $cliente->nome}}</td>
                             <td>{{ $cliente->email}}</td>
+                            <td>{{ $cliente->cep}}</td>
                             <td>{{ $cliente->endereco}}</td>
                             <td>{{ $cliente->logradouro}}</td>
-                            <td>{{ $cliente->cep}}</td>
                             <td>{{ $cliente->bairro}}</td>
                             <td>
                                 <a href="{{ route('atualizar.cliente', $cliente->id) }}" class="btn btn-light btn-sm">Editar</a>

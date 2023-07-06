@@ -15,28 +15,22 @@
 
         <div class="mb-3">
             <label class="form-label">Produto</label>
-            <select class="form-select" aria-label="Default select example" name="produto_id" @error('produto_id') is-invalid @enderror" id="produto_id">
+            <select class="form-select" aria-label="Default select example" name="produto_id" id="produto_id">
                 <option selected>Clique para selecionar</option>
                 @foreach ($findProduto as $Produto)
                     <option value="{{$Produto->id}}">{{$Produto->nome}}</option>    
                 @endforeach
             </select>
-            @if ($errors->has('produto_id'))
-                <div class="invalid-feedback">{{ $errors->first('produto_id') }}</div>                
-            @endif
         </div>
 
         <div class="mb-3">
             <label class="form-label">Cliente</label>
-            <select class="form-select" aria-label="Default select example" name="cliente_id" @error('cliente_id') is-invalid @enderror" id="cliente_id">
+            <select class="form-select" aria-label="Default select example" name="cliente_id" id="cliente_id">
                 <option selected>Clique para selecionar</option>
                 @foreach ($findCliente as $Cliente)
                     <option value="{{$Cliente->id}}">{{$Cliente->nome}}</option>    
                 @endforeach
             </select>
-            @if ($errors->has('cliente_id'))
-                <div class="invalid-feedback">{{ $errors->first('cliente_id') }}</div>                
-            @endif
         </div>
 
         <div class="mb-3">

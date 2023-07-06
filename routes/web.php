@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\VendasController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
+Route::prefix('dashboard')->group(function(){
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 });
 
 Route::prefix('produtos')->group(function(){
@@ -34,6 +36,14 @@ Route::prefix('vendas')->group(function(){
     Route::get('/atualizarVenda/{id}', [VendasController::class, 'atualizarVenda'])->name('atualizar.venda');
     Route::put('/atualizarVenda/{id}', [VendasController::class, 'atualizarVenda'])->name('atualizar.venda');
     Route::delete('/delete', [VendasController::class, 'delete'])->name('venda.delete');
-    Route::get('/enviaComprovantePorEmail/{id}', [VendasController::class, 'enviaComprovantePorEmail'])->name('enviacomprovante.venda');
-    
+    Route::get('/enviaComprovantePorEmail/{id}', [VendasController::class, 'enviaComprovantePorEmail'])->name('enviacomprovante.venda'); 
+});
+
+Route::prefix('users')->group(function(){
+    Route::get('/', [UsersController::class, 'index'])->name('user.index');
+    Route::get('/cadastrarUser', [UsersController::class, 'cadastrarUser'])->name('cadastrar.user');
+    Route::post('/cadastrarUser', [UsersController::class, 'cadastrarUser'])->name('cadastrar.user');
+    Route::get('/atualizarUser/{id}', [UsersController::class, 'atualizarUser'])->name('atualizar.user');
+    Route::put('/atualizarUser/{id}', [UsersController::class, 'atualizarUser'])->name('atualizar.user');
+    Route::delete('/delete', [UsersController::class, 'delete'])->name('user.delete');
 });

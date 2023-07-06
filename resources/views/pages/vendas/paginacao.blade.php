@@ -29,8 +29,7 @@
                 <tbody>
                     @foreach ($findVenda as $venda)
                         <tr>
-                            <td>{{ $venda->numero_da_venda}}</td>
-                            <td>{{ $venda->produto->nome}}</td>
+                            <td>{{ $venda->numero_da_venda}}</td>                                
                             <td>{{ 'R$' . ' ' . number_format($venda->produto->valor, 2, ',', '.') }}</td>
                             <td>{{ $venda->cliente->nome}}</td>
                             <td>{{ $venda->data_venda}}</td>

@@ -3,10 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -41,4 +43,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getUsersPesquisaIndex(string $search = '')
+    {
+        Paginator::useBootstrap();
+        $user = $this->where(function($query) use($search){
+            $query->where('name', $search);
+            $query->orwhere('name', 'LIKE', "%{$search}%");
+        })->orderBy('name')->paginate(5);
+
+        return $user;
+    }
 }
